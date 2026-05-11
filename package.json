@@ -16,6 +16,7 @@
   "scripts": {
     "build": "napi build --platform --release",
     "probe": "node scripts/probe.cjs",
+    "segfault": "npm run build && node test.js",
     "test": "npm run build && npm run probe"
   },
   "devDependencies": {

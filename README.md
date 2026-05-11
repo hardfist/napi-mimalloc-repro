@@ -43,6 +43,24 @@ hardlink-a-c       ok
 `same-source-twice` and `hardlink-a-c` are controls: they load the same physical
 image. `copied-a-b` loads two separate images with identical bytes.
 
+## Local Segfault Script
+
+To make the crash happen in the current Node.js process instead of capturing it
+from a child process:
+
+```bash
+npm run segfault
+```
+
+This builds the addon, copies the generated `.node` file to `.segfault/a.node`
+and `.segfault/b.node`, then loads both copies directly. On affected macOS
+machines the process should terminate while loading the second copy:
+
+```text
+requiring second physical copy; macOS should segfault here
+Segmentation fault: 11
+```
+
 ## Why This Matters
 
 mimalloc v3 uses fixed TLS slots on macOS arm64/x64:
