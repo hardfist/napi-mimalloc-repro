@@ -1,0 +1,24 @@
+{
+  "name": "napi-mimalloc-repro",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimal napi-rs repro for loading two physical copies of an addon that uses mimalloc v3",
+  "license": "MIT",
+  "main": "napi-mimalloc-repro.node",
+  "napi": {
+    "binaryName": "napi-mimalloc-repro",
+    "targets": [
+      "aarch64-apple-darwin",
+      "x86_64-unknown-linux-gnu",
+      "x86_64-pc-windows-msvc"
+    ]
+  },
+  "scripts": {
+    "build": "napi build --platform --release",
+    "probe": "node scripts/probe.cjs",
+    "test": "npm run build && npm run probe"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^3.6.2"
+  }
+}

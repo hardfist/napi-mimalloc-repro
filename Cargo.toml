@@ -1,0 +1,16 @@
+[package]
+name = "napi-mimalloc-repro"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+mimalloc = { version = "=0.1.50", features = ["local_dynamic_tls"] }
+napi = { version = "3.8.6", default-features = false, features = ["napi8"] }
+napi-derive = "3.5.5"
+
+[build-dependencies]
+napi-build = "2.3.1"

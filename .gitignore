@@ -1,0 +1,8 @@
+node_modules/
+build/
+target/
+*.node
+index.js
+index.d.ts
+*.log
+.DS_Store
